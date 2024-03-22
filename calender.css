@@ -1,0 +1,35 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  width: 100px;
+}
+th {
+	height: 80px;
+}
+td {
+	height: 40px;
+}
+table {
+	width: 90%;
+	height: 350px;
+	margin: auto;
+}
+.header{
+	background-color: rgba(74, 163, 219, 0.936);
+	font-size: 15px;
+}
+.body{
+	font-size: 15px;
+}
+.red {
+	background-color: #FF5733;
+}
+
+.blue {
+	background-color: #87CEFA;
+}
+
+.lightRed {
+	background-color: #FFA07A;
+}
