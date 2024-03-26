@@ -1,0 +1,87 @@
+table, th, td {
+  border: 1px solid whitesmoke;
+  border-collapse: collapse;
+  text-align: center;
+  width: 100px;
+  font-family: cursive;
+}
+th {
+	height: 80px;
+}
+.header {
+	transform: scale(1.01);
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+/* .header, .lightRed :hover {
+	transform: scale(1.2);
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+} */
+td {
+	height: 60px;
+}
+td:hover{
+	transform: scale(1.007);
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+tr:hover{
+	transform: scale(1.0007);
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+table {
+	width: 90%;
+	height: 350px;
+	margin: auto;
+}
+.header{
+	background-color: rgba(74, 163, 219, 0.936);
+	font-size: 15px;
+}
+.body{
+	font-size: 15px;
+	transform: scale(1.005);
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.blue {
+	background-color: #87CEFA;
+}
+
+.lightRed {
+	background-color: #FFA07A;
+	transform: scale(1.005);
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hover:hover {
+	background-color: rgb(239, 141, 103);
+	transform: scale(1.2);
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/*///////////////////*/
+
+.calendar {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+}
+
+.calendar-header {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.weekdays th {
+    padding: 10px;
+}
+
+.week th, .week td {
+    padding: 10px;
+    text-align: center;
+}
+
+.sunday {
+    background-color: red;
+    /* Add any other styles you want for Sundays */
+}

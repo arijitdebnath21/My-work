@@ -1,0 +1,78 @@
+<template>
+
+
+    <!-- hard codede -->
+    <!-- <div style="background-color: rgb(210, 234, 249); padding: 5px; text-align: center;"><h1 style="font-family: cursive; color: blue"><strong> March 2024 </strong></h1></div>
+    <div style="background-color: rgb(210, 234, 249); padding: 20px">
+        <div>
+            <table class="blue">
+                <tr class="header">
+                    <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th> <th style="background-color: #FF5733;">Sunday</th>
+                </tr>
+                <tr class="body">
+                    <td></td> <td></td> <td></td> <td></td> <td>1</td> <td>2</td> <td class="lightRed">3</td>
+                </tr>
+                <tr class="body">
+                    <td ondblclick={addNoteFour}> 4 <br>
+                        <template if:true={isdataForFour}>
+                            {dataForFour}
+                        </template>
+                                                    
+                        <template if:true={isAddNoteFour}>
+                            <lightning-input type="text" value={data} onchange={handleChangeForFour} onblur={closeInputForFour}></lightning-input>                                
+                        </template>
+                    </td> 
+                    
+                    <td>5</td> <td class="lightRed hover"> Maharishi Dayanand Saraswati Jayanti <br>6 </td> <td>7</td> <td class="lightRed hover"> Maha Shivratri <br> 8 </td> <td>9</td> <td class="lightRed">10</td>
+                </tr>
+                <tr class="body">
+                    <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td class="lightRed">17</td>
+                </tr>
+                <tr class="body">
+                    <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td class="lightRed hover"> Holi<br> 24</td>
+                </tr>
+                <tr class="body">
+                    <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td class="lightRed hover"> Good Friday <br>29</td> <td>30</td> <td class="lightRed hover"> Easter Day <br>31</td>
+                </tr>
+            </table>
+        </div>
+    </div> -->
+
+
+<!-- dynamically appear -->
+<lightning-card>
+    <div class="calendar">
+        <div class="calendar-header">March {year}</div>
+        <table class="blue">
+            <thead class="header">
+                    <tr>
+                        <template for:each={weekdays} for:item="weekday">
+
+                            <!-- for sunday -->
+                            <template if:true={isSunday}>
+                                <th key={weekday} class="sunday">{weekday}</th>   
+                            </template>
+
+                            <template if:false={isSunday}>
+                                <th key={weekday}>{weekday}</th>  
+                            </template>
+
+                        </template>
+                    </tr>
+            </thead>
+
+            <tbody class="body">
+                
+                    <template for:each={weeks} for:item="week">
+                        <tr key={week}>
+                            <template for:each={week} for:item="day">
+                                <td key={day}>{day}</td>
+                            </template>
+                        </tr>
+                    </template>
+                
+            </tbody>
+        </table>
+    </div>
+</lightning-card>
+</template>
