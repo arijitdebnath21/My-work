@@ -1,0 +1,42 @@
+<template>
+
+
+    <!-- hard coded -->
+    <div class="background-div"><h1 style="font-family: cursive; color: red; text-align: center;"><strong> March 2024 </strong></h1>
+            <table class="blue">
+                <tr class="header">
+                    <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th> <th style="background-color: #FF5733;">Sunday</th>
+                </tr>
+                <tr class="body">
+                    <td></td> <td></td> <td></td> <td></td> <td>1</td> <td>2</td> <td class="lightRed">3</td>
+                </tr>
+
+                <!-- Here I have applied a functionality to only this cell (date = 4), just to test if it works. My aim was to add a note to a particular cell
+                so that anyone can add any important note which will be visible just below the date itself. Double click on DATE 4 to test the functionality.  -->
+
+                <tr class="body">
+                    <td ondblclick={addNoteFour}> 4 <br>
+                        <template if:true={isdataForFour}>
+                           <div> <p><small>{dataForFour}</small></p></div>
+                        </template>
+                                                    
+                        <template if:true={isAddNoteFour}>
+                            <lightning-input type="text" value={data} onchange={handleChangeForFour} onblur={closeInputForFour}></lightning-input>                                
+                        </template>
+                    </td> 
+                    
+                    <td>5</td> <td class="lightRed hover"> <small> Dayanand Jayanti</small> <br>6 </td> <td>7</td> <td class="lightRed hover"> <small>Maha Shivratri</small> <br> 8 </td> <td>9</td> <td class="lightRed">10</td>
+                </tr>
+                <tr class="body">
+                    <td>11</td> <td>12</td> <td>13</td> <td>14</td> <td>15</td> <td>16</td> <td class="lightRed">17</td>
+                </tr>
+                <tr class="body">
+                    <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td>22</td> <td>23</td> <td class="lightRed hover"><small> Holi</small><br> 24</td>
+                </tr>
+                <tr class="body">
+                    <td>25</td> <td>26</td> <td>27</td> <td>28</td> <td class="lightRed hover"><small> Good Friday</small> <br>29</td> <td>30</td> <td class="lightRed hover"><small> Easter Day</small> <br>31</td>
+                </tr>
+            </table>
+    </div>
+
+</template>
