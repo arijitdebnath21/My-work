@@ -1,0 +1,42 @@
+<template>
+    <lightning-card>
+       
+    <div class="container">
+        <div class="slds-progress_vertical">
+            <div class="status-item" onclick={handleStep1Click}>
+                <div class={step1Class}>
+                    <lightning-icon icon-name={step1Icon} size="xx-small" alternative-text="Step 1" variant={variantIcon}></lightning-icon>
+                </div>
+                <div class="status-label">Personal Information</div>
+            </div>
+            <template if:true={showStep1}>
+                <c-score_personal-info 
+                 onnext={handleNextStep1}
+                  onprevious={handlePreviousStep1}
+                    onfieldchange={handleFieldChange}
+                     personel-information={personalInformationStep1}
+                    ></c-score_personal-info>
+            </template>
+            <div class="status-item" onclick={handleStep2Click}>
+                <div class={step2Class}>
+                    <lightning-icon icon-name={step2Icon} size="xx-small" alternative-text="Step 2" variant={variantIcon}></lightning-icon>
+                </div>
+                <div class="status-label">Emergency Contact</div>
+            </div>
+            <template if:true={showStep2}>
+                <!-- <c-emergency-contact onnext={handleNextStep2} onprevious={handlePreviousStep2} onfieldchange={handleField2Change}></c-emergency-contact> -->
+            </template>
+            <div class="status-item" onclick={handleStep3Click}>
+                <div class={step3Class}>
+                    <lightning-icon icon-name={step3Icon} size="xx-small" alternative-text="Step 2" variant={variantIcon}></lightning-icon>
+                </div>
+                <div class="status-label">Photo</div>
+            </div>
+            <template if:true={showStep3}>
+                <!-- <c-photo onnext={handleNextStep3} onprevious={handlePreviousStep3} onfieldchange={handleField3Change} onremove={handleRemove} image-url-display={photo} is-file-uploaded={validItems3}></c-photo> -->
+            </template>
+         </div>
+       </div>
+       
+    </lightning-card>
+</template>

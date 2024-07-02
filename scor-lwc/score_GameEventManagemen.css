@@ -1,0 +1,123 @@
+.main-box{
+    background-color: white;
+    border: 2px solid rgb(188, 229, 255);
+    border-radius: 5px;
+    margin: 10px;
+}
+.box {
+    border-top: 40px solid rgb(193, 229, 255);
+    height: 38px;
+}
+.item4_1 {
+    /* padding: 10px; */
+	color: rgba(60, 61, 61, 0.806);
+    position: relative;
+    top: -32px;
+    left: 10px;
+	font-size: 16px;
+	border-radius: 3px;
+}
+.icon{
+	position: relative;
+	top: -55px;
+	left: 92%;
+	width: 12px;
+    height: 12px;
+}
+.status-header {
+    background-color: rgb(241, 241, 243);
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid #E0E0E0;
+}
+.divider-line {
+    border: 0;
+    height: 0.5px;
+    background: rgb(203, 203, 203); /* Adjust the color as needed */
+    margin: 15px 0; /* Adjust the spacing as needed */
+}
+.accept-photo{
+    position: relative;
+	top: 40px;
+	left: -49%;
+	width: 120px;
+    height: 120px;
+}
+.reject-photo{
+    position: relative;
+	top: 40px;
+	left: -47%;
+	width: 140px;
+    height: 140px;
+}
+.profile-photo{
+    position: relative;
+    top: 30px;
+	left: -350px;
+	width: 180px;
+    height: 190px;
+}
+.profile-photo2{
+    width: 600px;
+    height: 750px;
+}
+a:link {
+  text-decoration: none;
+}
+.view-file{
+    position: relative;
+	left: -180px;
+    white-space: nowrap;
+}
+.download{
+    position: relative;
+	left: -180px;
+    white-space: nowrap;
+}
+.form-content {
+    margin-left: 10px;
+    width: 100%;
+}
+@media only screen and (max-width: 1024px){
+    .icon{
+	    left: 86%;
+    }
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

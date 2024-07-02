@@ -1,0 +1,29 @@
+<template>
+	<lightning-card>
+
+    <div class="slds-grid slds-wrap">
+		<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12" >
+			<a class="nav-link3" href="javascript:void(0)" onclick={showClickedTemplate} data-name="Contact Details" style={greyClass1}>Contact Details</a>
+		</div>
+		<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12" >
+			<a class="nav-link3" href="javascript:void(0)" onclick={showClickedTemplate} data-name="Game Event Management" style={greyClass2}>Game Event Management</a>
+		</div>
+	</div>
+
+
+	<!-- call to child comp -->
+   <div class="doc">
+		<lightning-layout-item size="10">
+			<template if:true={openContactDetailspage}>
+				<c-score_contact-details></c-score_contact-details>
+			</template>
+			<template if:true={openGameEventManagementpage}>
+					<c-score_-game-event-managemen></c-score_-game-event-managemen>   <!-- Accreditation -->
+					<c-score_photo_travel onpassphotodataevent={handlePhotoData}></c-score_photo_travel>       <!-- photo -->
+					<c-score_travel></c-score_travel>       <!-- travel -->
+			</template>
+		</lightning-layout-item>
+	</div>
+
+	</lightning-card>
+</template>

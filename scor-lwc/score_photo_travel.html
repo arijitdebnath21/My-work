@@ -1,0 +1,137 @@
+<template>
+<template if:false={editInOperation}>
+<!-- photo -->
+<div class="main-box">
+        <div class="box">
+            <h1 class="item4_1 slds-large-size_1-of-12 slds-medium-size_1-of-12 slds-size_1-of-12"><Strong>Photo</Strong></h1>
+        
+    <!-- arrow -->
+        <lightning-icon class="icon"
+            icon-name={arrowIconNameForPhoto}
+            onclick={toggleContentVisibilityForPhoto}>
+        </lightning-icon>
+    </div>
+    <div class={contentWrapperClassForPhoto}>
+        <center> <div class="slds-grid slds-gutters slds-wrap status-header">
+                        <span class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 padding"> <lightning-button label="Edit" icon-name="utility:edit"  icon-position="left" variant="brand" onclick={handleEditChange}></lightning-button> </span>
+                        <span class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 padding"> <b><lightning-button onclick={openPopUpForAcceptanceCriteria} class="blue" label="Acceptance Criteria" icon-name="utility:retail_execution"  icon-position="left" variant="brand"></lightning-button></b> </span>
+                        <span class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 padding tooltip-container"> <button style={opacityDecrease} class="slds-button slds-button_success hover-button" onclick={approve_photo}>Approve</button>  <div class="tooltip" lwc:if={alreadyApprovedOrRejected}> Already responded </div> </span>
+                        <span class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 padding tooltip-container"> <button style={opacityDecrease} class="slds-button slds-button_destructive hover-button" onclick={reject_photo}>Reject</button> <div class="tooltip" lwc:if={alreadyApprovedOrRejected}> Already responded </div> </span>
+                 </div> </center>
+
+          <div class="slds-var-m-around_medium slds-grid slds-wrap">
+
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                                    <p><strong> Photo Submission with Guidelines </strong></p>
+                                </div>
+                                <div class="slds-var-m-around_medium slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                                    <img src={accepted_Photo} class="accept-photo" alt="Attachment"/>
+                                    <img src={rejected_Photo}  class="reject-photo" alt="Attachment"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_12-of-12">
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                    <lightning-button label="ViewFile" icon-name="utility:preview"  icon-position="left" onclick={openPopUpForImagePreview} variant="base" class="view-file"></lightning-button>
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                    <!-- <lightning-button label="" icon-name="utility:download"  icon-position="left" onclick={handleDownload} variant="base" class="download"></lightning-button> -->                                        
+
+                                        <template if:true={filesList}>
+                                            <template for:each={filesList} for:item="file">
+                                                <lightning-button
+                                                    key={file.value}
+                                                    label="DownloadFile"
+                                                    icon-name="utility:download"
+                                                    icon-position="left"
+                                                    data-url={file.url}
+                                                    variant="base"
+                                                    class="download"
+                                                    onclick={handleDownload}
+                                                ></lightning-button>
+                                            </template>
+                                        </template>
+                                        
+                                </div>
+                                <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                                    <img src={documentUrl} class="profile-photo" alt="Attachment"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-large-size_2-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                            <template if:true={isShowModal2}>
+                                                    <div class="slds-panel slds-size_medium slds-panel_docked slds-panel_docked-right slds-is-open slider">
+                                                        <div class="slds-panel__header">
+                                                            <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">Acceptance Criteria</h2>
+                                                            <div class="slds-panel__header-actions">
+                                                                <lightning-button-icon 
+                                                                    icon-name="utility:close" 
+                                                                    size="small" 
+                                                                    alternative-text="Close" 
+                                                                    title="Close" 
+                                                                    onclick={hideModalBoxForAcceptanceCriteria}
+                                                                    class="slds-panel__close">
+                                                                </lightning-button-icon>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-panel__body slds-var-m-around_large">
+                                                            <img src={accepted_Photo} class="accept-photo2" alt="Attachment"/>
+                                                            <img src={rejected_Photo}  class="reject-photo2" alt="Attachment"/>
+                                                        </div> 
+                                                        <!-- <footer class="slds-modal__footer"> -->
+                                                        <!-- <button class="slds-button slds-button_neutral slds-var-m-around_medium" onclick={hideModalBox2}>Close</button> -->
+                                                    <!-- </footer> -->
+                                                     </div>
+                                 </template>
+                        </div>
+          </div>
+
+    </div>
+</div>
+
+
+<!-- pop up lwc modal -->
+<template if:true={isShowModal}>
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+       <div class="slds-modal__container">
+<!-- modal header start -->
+        <header class="slds-modal__footer">
+            <div class="slds-panel__header">
+                    <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">Photo Submission with Guidelines</h2>
+                        <div class="slds-panel__header-actions">
+                            <lightning-button-icon 
+                                icon-name="utility:close" 
+                                size="small" 
+                                alternative-text="Close" 
+                                title="Close" 
+                                onclick={hideModalBoxForImagePreview}
+                                >
+                            </lightning-button-icon>
+                        </div>
+            </div>
+          </header>
+      
+<!-- modal body start -->
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+              <center> <img src={documentUrl} class="profile-photo2" alt="Attachment"> </center>
+		  </div>
+					
+<!-- modal footer start-->
+          <footer class="slds-modal__footer">
+             <button class="slds-button slds-button_neutral" onclick={hideModalBoxForImagePreview}>Close</button>
+          </footer>
+       
+       </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+ </template>
+
+
+</template>
+</template>

@@ -1,0 +1,89 @@
+.container {
+    background-image: url('/resource/GM_Logo');
+    /* font-family: serif; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    margin: 15px;
+    box-sizing: border-box;
+    /* width: 100%; */
+    height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	/* justify-content: space-between; */
+	position: relative;
+}
+.status-card {
+    width: 100%;
+    /* max-width: 800px; */
+    border: 1px solid #E0E0E0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* padding: 15px; */
+	margin: 10px;
+    text-align: center;
+}
+.status-header {
+    background-color: #F4F6F9;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+    /* margin: 5px; */
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.status-body {
+    color: #FFA500;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    margin: 5px;
+}
+
+.status-body.approved {
+    color: #77ff33;
+}
+.date{
+    font-weight: bold;
+    font-size: 16px;
+}
+.nav{
+    text-align: center;
+    padding: 15px;
+}
+.aboutYou{
+    padding: 5px;
+}
+.eventReg{
+    padding: 5px;
+}
+.RevSubmit{
+    padding: 5px;
+}
+.circle {
+    text-align: center;
+    cursor: default;
+    width: 20px;
+    height: 20px;
+    color: white;
+    background-color: rgb(132, 132, 132); /* You can change the background color as needed */
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 900px) {
+
+}

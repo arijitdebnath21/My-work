@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 50px; /* Adjust padding to prevent overlap */
+}
+
+.slds-progress_vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 0px;
+}
+
+.slds-progress_vertical::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 10px;
+    width: 4px;
+    height: calc(var(--progress-height, 100%) - 30px - var(--progress-offset, 0px));
+    background-color: hsl(43, 87%, 52%);
+    z-index: 0;
+    
+
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.status-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    border: 2px solid yellow;
+    font-size: 12px;
+    background-color: gray;
+}
+
+.status-icon.completed {
+    background-color: #04b30a;
+}
+
+.status-icon.incomplete {
+    background-color: #cb1407;
+    position: left;
+}
+
+.status-label {
+    font-size: 14px;
+    margin-left: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 1;
+}

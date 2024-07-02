@@ -1,0 +1,48 @@
+<template>
+    <template if:false={editInOperation}>
+<!-- Accreditation -->
+<div class="main-box">
+        <div class="box">
+            <h1 class="item4_1"><Strong>Accreditation</Strong></h1>
+        
+    <!-- arrow --> 
+        <lightning-icon class="icon"
+            icon-name={arrowIconNameForAccreditation}
+            onclick={toggleContentVisibilityForAccreditation}>
+        </lightning-icon>
+    </div>
+    <div class={contentWrapperClassForAccreditation}>
+           <center> <span class="slds-grid slds-gutters status-header">
+                        <span class="slds-col slds-size_1-of-3"> <lightning-button label="Edit" icon-name="utility:edit"  icon-position="left" variant="brand" onclick={handleEditChange}></lightning-button> </span>
+                        <span class="slds-col slds-size_1-of-3 tooltip-container"> <button style={opacityDecrease} class="slds-button slds-button_success hover-button" onclick={approve}>Approve</button> <div class="tooltip" lwc:if={alreadyApprovedOrRejected}> Already responded </div></span>
+                        <span class="slds-col slds-size_1-of-3 tooltip-container"> <button style={opacityDecrease} class="slds-button slds-button_destructive hover-button" onclick={reject}>Reject</button><div class="tooltip" lwc:if={alreadyApprovedOrRejected}> Already responded </div> </span>
+            </span> </center>
+
+            <div class="slds-var-m-around_medium">
+            <lightning-record-view-form record-id={recordId} object-api-name="Contact">
+                <template for:each={accreditationFields} for:item="field">
+                    <!-- <lightning-output-field key={field} field-name={field}></lightning-output-field> -->
+                    <div key={field.accreditationFieldName} class="slds-grid slds-gutters slds-wrap slds-var-m-around_large">
+                        <!-- Field Label -->
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                            <p class="slds-text-title_bold">{field.accreditationLabel}</p>
+                        </div>
+                        <!-- Field Value -->
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                            <lightning-output-field field-name={field.accreditationFieldName} variant="label-hidden"></lightning-output-field>
+                        </div>
+                    </div>
+                    <hr key={field.accreditationFieldName} class="divider-line">
+                </template>
+            </lightning-record-view-form>
+            </div>
+    </div>
+</div>
+</template>
+
+<!-- call to child edit -->
+<template if:true={editInOperation}>
+    <c-score_about-you></c-score_about-you>
+</template>
+
+</template>

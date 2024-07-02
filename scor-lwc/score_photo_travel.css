@@ -1,0 +1,195 @@
+.main-box{
+    background-color: white;
+    border: 2px solid rgb(188, 229, 255);
+    border-radius: 5px;
+    margin: 10px;
+}
+.box {
+    border-top: 40px solid rgb(193, 229, 255);
+    height: 38px;
+}
+.item4_1 {
+    /* padding: 10px; */
+	color: rgba(60, 61, 61, 0.806);
+    position: relative;
+    top: -32px;
+    left: 10px;
+	font-size: 16px;
+	border-radius: 3px;
+}
+.icon{
+	position: relative;
+	top: -55px;
+	left: 92%;
+	width: 12px;
+    height: 12px;
+}
+.status-header {
+    background-color: rgb(241, 241, 243);
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid #E0E0E0;
+}
+.divider-line {
+    border: 0;
+    height: 0.5px;
+    background: rgb(203, 203, 203); /* Adjust the color as needed */
+    margin: 15px 0; /* Adjust the spacing as needed */
+}
+.accept-photo{
+    position: relative;
+	top: 20px;
+	left: 10px;
+	width: 160px;
+    height: 180px;
+}
+.reject-photo{
+    position: relative;
+	top: 10px;
+	left: 20px;
+	width: 200px;
+    height: 260px;
+}
+.accept-photo2{
+    position: relative;
+	/* top: 40px; */
+	left: 5px;
+	width: 120px;
+    height: 140px;
+}
+.reject-photo2{
+    position: relative;
+	/* top: 40px; */
+	left: 20px;
+	width: 140px;
+    height: 180px;
+}
+.profile-photo{
+    position: relative;
+    /* top: 30px; */
+	left: -10%;
+	/* width: 270px;
+    height: 350px; */
+}
+.profile-photo2{
+    width: 600px;
+    height: 750px;
+}
+a:link {
+  text-decoration: none;
+}
+.view-file{
+    /* position: relative; */
+	/* left: -180px; */
+    white-space: nowrap;
+}
+.download{
+    /* position: relative; */
+	/* left: -180px; */
+    white-space: nowrap;
+    /* text-align: left; */
+}
+.form-content {
+    margin-left: 10px;
+    width: 100%;
+}
+.blue{
+    --sds-c-button-brand-color-background: #2bcfe8;
+    --slds-c-button-brand-text-color: black;
+}
+.blue:hover{
+    --sds-c-button-brand-color-background: #2bcfe8;
+    --slds-c-button-brand-text-color: black;
+}
+.padding{
+    padding: 2px;
+}
+.status-header {
+    background-color: rgb(241, 241, 243);
+    padding: 8px;
+    width: 100%;
+    border-bottom: 1px solid #E0E0E0;
+}
+.slider{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    float: inline-end;
+}
+
+/* For fixed */
+/* .slider{
+    position: fixed;
+    top: 250px;
+    height: 300px; 
+} */
+
+
+@media only screen and (max-width: 1024px){
+    .icon{
+	    left: 86%;
+    }
+    .view-file{
+        position: relative;
+        /* left: -180px; */
+        top: 20%;
+        /* white-space: nowrap; */
+    }
+    .download{
+        position: relative;
+        top: 20%;
+        /* left: -180px; */
+        /* white-space: nowrap; */
+    }
+    .reject-photo{
+        padding-bottom: 40px;
+        left: 0px;
+    }
+    .profile-photo{
+        padding-top: 20px;
+    	left: 0px;
+    }
+    .slider{
+        top: 0px;
+        left: 0px;
+    }
+}
+
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

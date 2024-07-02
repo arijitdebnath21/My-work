@@ -1,0 +1,36 @@
+<template>
+
+<!-- PI -->
+<div class="main-box">
+        <div class="box">
+            <h1 class="item4_1"><Strong>Personal Information</Strong></h1>
+        
+    <!-- arrow -->
+        <lightning-icon class="icon"
+            icon-name={arrowIconNameForPI}
+            onclick={toggleContentVisibilityForPI}>
+        </lightning-icon>
+    </div>
+    <div class={contentWrapperClassForPI}>
+
+            <div class="slds-var-m-around_large">
+            <lightning-record-view-form record-id={recordId} object-api-name="Contact">
+                <template for:each={PIFields} for:item="field">
+                    <!-- <lightning-output-field key={field} field-name={field}></lightning-output-field> -->
+                    <div key={field.PIFieldName} class="slds-grid slds-gutters slds-var-m-around_large">
+                        <!-- Field Label -->
+                        <div class="slds-col slds-size_1-of-2">
+                            <p class="slds-text-title_bold">{field.PILabel}</p>
+                        </div>
+                        <!-- Field Value -->
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name={field.PIFieldName} variant="label-hidden"></lightning-output-field>
+                        </div>
+                    </div>
+                    <hr key={field.PIFieldName} class="divider-line">
+                </template>
+            </lightning-record-view-form>
+            </div>
+    </div>
+</div>
+</template>

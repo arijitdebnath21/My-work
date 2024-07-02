@@ -1,0 +1,59 @@
+<template>
+<lightning-card>
+    <!-- navigating section -->
+    <div class="slds-grid slds-wrap nav">
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12 aboutYou">
+            <!-- <div class="circle" onclick={aboutYou} style={aboutYouColor}>1</div> <br> -->
+            <div class="circle" style={aboutYouColor}>1</div> <br>
+            <span>About You</span>
+        </div>
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12 eventReg">
+            <!-- <div class="circle" onclick={eventReg} style={eventRegColor}>2</div> <br> -->
+            <div class="circle" style={eventRegColor}>2</div> <br>
+            <span>Event Registration</span>
+        </div>
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12 revSubmit">
+            <!-- <div class="circle" onclick={revSubmit} style={revSubmitColor}>3</div> <br> -->
+            <div class="circle" style={revSubmitColor}>3</div> <br>
+            <span>Review & Submit</span>
+        </div>
+    </div>
+
+   <template if:true={contact}>
+        <div class="container">
+            <!-- Status Information -->
+               <!-- 1st Card -->
+                <div class="status-card">
+                    <div class="status-header">Registration Status</div>
+                    <div class="status-body">{contact.Registration_Status__c}</div>
+                </div>
+
+                <!-- 2nd Card -->
+                <div class="status-card">
+                    <div class="status-header">Accreditation</div>
+                    <div class="status-body">
+                        <div> <span style="color: black"> ID: </span> Not Started</div>
+                        <!-- <div>Photo: {contact.Photo_Verification__c}</div> -->
+                        <div style={photoStatusClr}> <span style="color: black"> Photo: </span> {photoStatus}</div>
+                    </div>
+                </div>
+
+                <!-- 3nd Card -->
+                <div class="status-card">
+                    <div class="status-header">HR Approval Status</div>
+                    <!-- <div class="status-body approved">{contact.HR_App__c}</div> -->
+                    <div class="status-body approved" style={hrStatusClr}>{hrStatus}</div>
+                    
+                </div>
+
+                 <!-- 4th Card -->
+                <div class="status-card">
+                    <div class="slds-p-around_medium contact-info">
+                        <div class="date">Last modified {lastModDate} by {contact.LastModifiedBy.Name}</div>
+                    </div>
+                </div>
+        </div>
+   </template>
+
+</lightning-card>
+</template>
