@@ -1,0 +1,81 @@
+<template>
+<lightning-card class="slds-p-around_large">
+
+    <lightning-button class="slds-p-around_large" label="Open Org2 Data" onclick={openModal}></lightning-button>
+        <template if:true={isModalOpen}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">  
+            <!-- header -->
+            <header class="slds-modal__footer">
+            <div class="slds-panel__header">
+                    <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">Contact Details</h2>
+                        <div class="slds-panel__header-actions">
+                            <lightning-button-icon 
+                                icon-name="utility:close" 
+                                size="small" 
+                                alternative-text="Close" 
+                                title="Close" 
+                                onclick={hideModalBox}
+                                >
+                            </lightning-button-icon>
+                        </div>
+            </div>
+          </header>
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                                <div class="background-div container">
+                                        <template if:true={contacts}>
+                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                                <thead>
+                                                    <tr class="slds-line-height_reset">
+                                                        <th scope="col">
+                                                            <div class="slds-truncate" title="First Name">First Name</div>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <div class="slds-truncate" title="Last Name">Last Name</div>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <div class="slds-truncate" title="Email">Email</div>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <div class="slds-truncate" title="Id">Id</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <template for:each={contacts} for:item="contact">
+                                                        <tr key={contact.Id} class="slds-hint-parent">
+                                                            <td>
+                                                                <div class="slds-truncate" title={contact.FirstName}>{contact.FirstName}</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="slds-truncate" title={contact.LastName}>{contact.LastName}</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="slds-truncate" title={contact.Email}>{contact.Email}</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="slds-truncate" title={contact.Id}>{contact.Id}</div>
+                                                            </td>
+                                                        </tr>
+                                                    </template>
+                                                </tbody>
+                                            </table>
+                                        </template>
+                                        <template if:true={error}>
+                                            <p>Error fetching contacts: {error.body.message}</p>
+                                        </template>
+                                </div>
+                </div>
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+            </footer>
+        
+        </div>
+        </section>
+        </template>
+</lightning-card>
+</template>
